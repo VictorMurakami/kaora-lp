@@ -1,0 +1,50 @@
+@layer components {
+  details[data-expanded='true'] .service-toggle,
+  .faq-list details[data-expanded='true'] summary svg,
+  details[open]:not([data-expanded]) .service-toggle,
+  .faq-list details[open]:not([data-expanded]) summary svg {
+    transform: rotate(45deg);
+  }
+  .disclosure-content {
+    overflow: hidden;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sculpture-stage,
+  .workspace-demo {
+    transform: none !important;
+  }
+}
+@media (forced-colors: active) {
+  .action-link,
+  .task-check,
+  .experiment-controls button[aria-pressed='true'] {
+    border: 1px solid ButtonText;
+  }
+}
+
+.reading-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--color-accent);
+  transform-origin: left;
+  z-index: 60;
+  pointer-events: none;
+}
+.service-icon,
+.action-link svg,
+.header-contact svg,
+.back-top svg {
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sculpture,
+  .action-link:hover,
+  .action-link:hover svg,
+  .header-contact:hover svg,
+  .service-item summary:hover .service-icon,
+  .back-top:hover svg {
+    transform: none !important;
+  }
+}

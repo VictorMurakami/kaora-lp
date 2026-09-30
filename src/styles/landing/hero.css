@@ -1,0 +1,370 @@
+@layer components {
+  .hero-section {
+    padding-top: 88px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2rem;
+    padding-block: clamp(2.5rem, 4vw, 4rem);
+    min-height: min(780px, calc(100svh - 166px));
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+  }
+  .hero-title {
+    font-size: clamp(3.6rem, 5.8vw, 5.5rem);
+    line-height: 1.01;
+    font-weight: 500;
+    letter-spacing: -0.065em;
+    margin-block: 2rem 1.6rem;
+  }
+  .hero-title > span {
+    display: block;
+  }
+  .hero-title-accent {
+    color: var(--color-accent);
+    font-size: 0.88em;
+    line-height: 1.18;
+    letter-spacing: -0.055em;
+  }
+  .hero-description {
+    max-width: 380px;
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+  .hero-actions {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    flex-wrap: wrap;
+  }
+  .hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    min-height: 78px;
+    padding-block: 1rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+  }
+  .hero-bottom a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-text);
+  }
+  .hero-bottom a svg {
+    color: var(--color-accent);
+  }
+  .experiment {
+    min-width: 0;
+  }
+  .experiment-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-text-muted);
+    font-size: 0.5625rem;
+    letter-spacing: 0.12em;
+    padding-inline: 1rem;
+  }
+  .experiment-heading > span:first-child {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .sculpture-stage {
+    position: relative;
+    isolation: isolate;
+  }
+  .sculpture-grid {
+    position: absolute;
+    inset: 9%;
+    border: 1px solid color-mix(in srgb, var(--color-border) 45%, transparent);
+    border-radius: 50%;
+    background-image:
+      linear-gradient(
+        color-mix(in srgb, var(--color-border) 25%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--color-border) 25%, transparent) 1px,
+        transparent 1px
+      );
+    background-size: 40px 40px;
+  }
+  .sculpture {
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    filter: drop-shadow(0 0 18px color-mix(in srgb, var(--color-accent) 12%, transparent));
+  }
+  .sculpture-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sculpture-stage[data-ready='true'] .sculpture-canvas {
+    opacity: 1;
+  }
+  .sculpture-stage[data-ready='true'] .sculpture-fallback {
+    visibility: hidden;
+  }
+  .sculpture-canvas {
+    transition: opacity var(--duration-base) var(--ease-out-expo);
+  }
+  .registration {
+    position: absolute;
+    color: var(--color-text-muted);
+  }
+  .registration-top {
+    top: 8%;
+    left: 6%;
+  }
+  .registration-bottom {
+    bottom: 8%;
+    right: 6%;
+  }
+  .sculpture-coordinate {
+    position: absolute;
+    bottom: 8%;
+    left: 6%;
+    font-size: 0.5625rem;
+    letter-spacing: 0.1em;
+    color: var(--color-text-muted);
+  }
+  .experiment-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .experiment-destination {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.6875rem;
+    min-height: 44px;
+  }
+  .experiment-destination:hover {
+    color: var(--color-accent);
+  }
+  .experiment-bottom > div > span {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--color-text-muted);
+    font-size: 0.5625rem;
+  }
+  .experiment-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+  .experiment-controls button {
+    min-height: 44px;
+    min-width: 44px;
+    padding-inline: 0.65rem;
+    font-size: 0.625rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    color: var(--color-text-muted);
+    transition:
+      color var(--duration-fast),
+      border-color var(--duration-fast),
+      background var(--duration-fast),
+      transform var(--duration-fast);
+  }
+  .experiment-controls button[aria-pressed='true'] {
+    color: var(--color-text);
+    border-color: var(--color-border);
+  }
+  .experiment-controls button:hover {
+    color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 6%, transparent);
+  }
+  .experiment-controls button:active {
+    transform: scale(0.96);
+  }
+  .experiment-heading,
+  .sculpture-coordinate {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero-grid {
+    min-height: 760px;
+  }
+}
+@media (max-width: 1100px) {
+  .hero-title {
+    font-size: clamp(3.6rem, 6.5vw, 5rem);
+  }
+  .hero-location {
+    display: none;
+  }
+  .experiment-bottom {
+    flex-direction: column;
+  }
+  .experiment-controls {
+    align-self: flex-start;
+  }
+}
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: 72px;
+  }
+  .hero-grid {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-block: 3rem 1.5rem;
+    gap: 3rem;
+  }
+  .hero-title {
+    font-size: clamp(3.5rem, 11.5vw, 5.5rem);
+    margin-top: 1.8rem;
+  }
+  .hero-title-accent {
+    font-size: 0.84em;
+  }
+  .hero-description {
+    font-size: 0.9375rem;
+    max-width: 420px;
+  }
+  .hero-actions {
+    gap: 1rem;
+  }
+  .hero-bottom {
+    min-height: 70px;
+  }
+  .hero-bottom > span {
+    display: none;
+  }
+  .experiment {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .experiment-heading {
+    padding-inline: 0;
+  }
+  .experiment-bottom {
+    flex-direction: row;
+    align-items: center;
+    padding-inline: 0;
+  }
+  .experiment-bottom > div > span {
+    max-width: 160px;
+    line-height: 1.6;
+  }
+  .experiment-controls {
+    align-self: center;
+  }
+}
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 3.3rem;
+  }
+  .hero-title-accent {
+    font-size: 0.77em;
+  }
+  .experiment-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .experiment-bottom > div > span {
+    max-width: none;
+  }
+  .experiment-controls {
+    align-self: flex-start;
+  }
+}
+@media (forced-colors: active) {
+  .sculpture-stage[data-ready='true'] .sculpture-fallback {
+    visibility: visible;
+  }
+  .sculpture-stage .sculpture-canvas {
+    display: none;
+  }
+  .sculpture path {
+    stroke: CanvasText;
+  }
+  .sculpture circle {
+    fill: CanvasText;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experiment-controls button:active {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .experiment {
+    max-width: 540px;
+    width: 100%;
+    justify-self: end;
+  }
+  .sculpture {
+    height: 440px;
+  }
+}
+@media (min-width: 768px) and (max-height: 820px) {
+  .hero-grid {
+    padding-block: 2rem;
+  }
+  .sculpture {
+    height: 370px;
+  }
+  .hero-title {
+    font-size: clamp(3.5rem, 5.6vw, 5rem);
+  }
+}
+
+/* With scripting the canvas is on its way, so the static drawing waits instead of
+   flashing first; it returns when WebGL is missing or lost (data-fallback). */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+  .sculpture-stage:not([data-ready]):not([data-fallback]) .sculpture-fallback {
+    visibility: hidden;
+  }
+}
+
+/* Laboratory variant: the artwork takes the whole column, and the stage is sized
+   so heading, stage and controls fit the first screen below the header. */
+@media (min-width: 768px) {
+  .experiment.experiment-lab {
+    max-width: none;
+    justify-self: stretch;
+  }
+  .experiment-lab .sculpture {
+    height: clamp(380px, calc(100svh - 300px), 820px);
+  }
+}
+@media (max-width: 767px) {
+  .experiment-lab .sculpture {
+    height: clamp(300px, min(110vw, calc(100svh - 330px)), 560px);
+  }
+}
+/* The artwork scales with the stage height, so the grid follows the height too
+   and keeps the hero's proportion instead of stretching with the width. */
+.experiment-lab .sculpture-grid {
+  inset: 9% auto;
+  left: 50%;
+  aspect-ratio: 540 / 440;
+  max-width: 100%;
+  transform: translateX(-50%);
+}

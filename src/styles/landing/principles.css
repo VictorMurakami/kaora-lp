@@ -1,0 +1,52 @@
+@layer components {
+  .principles-section .section-title {
+    margin-top: 2rem;
+    max-width: 630px;
+  }
+  .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+    margin-top: 3.5rem;
+  }
+  .principles-grid article {
+    border-top: 1px solid var(--color-border);
+  }
+  .principle-marker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 1.2rem 2rem;
+    color: var(--color-accent);
+    font-size: 0.625rem;
+  }
+  .principles-grid h3 {
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+  }
+  .principles-grid p {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    margin-top: 1rem;
+  }
+}
+@media (max-width: 1100px) {
+  .principles-grid {
+    gap: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .principles-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .principle-marker {
+    padding-bottom: 1rem;
+  }
+  .principles-grid h3 {
+    max-width: 400px;
+  }
+}

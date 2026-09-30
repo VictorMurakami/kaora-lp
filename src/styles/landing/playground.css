@@ -1,0 +1,280 @@
+@layer components {
+  .playground-section {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+  }
+  .playground-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 9%;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .playground-copy .section-description {
+    margin-top: 1.5rem;
+    max-width: 350px;
+  }
+  .playground-note {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.625rem;
+    color: var(--color-text-muted);
+    margin-top: 2rem;
+  }
+  .playground-arrow {
+    color: var(--color-accent);
+    margin-top: 3rem;
+  }
+  .workspace-demo {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    border-radius: 10px;
+    box-shadow: 0 24px 80px rgb(0 0 0 / 0.2);
+    overflow: hidden;
+  }
+  .workspace-toolbar {
+    min-height: 55px;
+    padding: 0.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-paper-border);
+  }
+  .workspace-toolbar > span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+  .workspace-divider {
+    margin-inline: 0.5rem;
+    color: var(--color-paper-muted);
+    font-weight: 400;
+  }
+  .workspace-name {
+    color: var(--color-paper-muted);
+    font-size: 0.6875rem;
+    font-weight: 400;
+  }
+  .workspace-toolbar button {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: var(--color-paper-muted);
+  }
+  .workspace-body {
+    padding: 1.5rem 2rem;
+  }
+  .workspace-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.625rem;
+    color: var(--color-paper-muted);
+  }
+  .workspace-breadcrumb > span {
+    margin-left: auto;
+  }
+  .workspace-project-icon {
+    display: grid;
+    place-items: center;
+    height: 44px;
+    width: 44px;
+    background: var(--color-brand-200);
+    color: var(--color-brand-800);
+    border-radius: 10px;
+    margin-block: 1.5rem 1rem;
+  }
+  .workspace-body h3 {
+    font-size: 1.4rem;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+  }
+  .workspace-description {
+    font-size: 0.6875rem;
+    color: var(--color-paper-muted);
+    margin-top: 0.4rem;
+  }
+  .project-progress {
+    margin-block: 1.8rem 1.4rem;
+  }
+  .project-progress > div:first-child {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.625rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-paper-muted);
+  }
+  .project-progress strong {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+  .progress-track {
+    height: 5px;
+    background: var(--color-paper-border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-track > span {
+    display: block;
+    height: 100%;
+    background: var(--color-brand-600);
+    transition: transform var(--duration-base) var(--ease-out-expo);
+    width: 100%;
+    transform-origin: left;
+  }
+  .task-filters {
+    display: flex;
+    gap: 1rem;
+    border-bottom: 1px solid var(--color-paper-border);
+  }
+  .task-filters button {
+    min-height: 44px;
+    font-size: 0.6875rem;
+    color: var(--color-paper-muted);
+    border-bottom: 2px solid transparent;
+  }
+  .task-filters button[aria-pressed='true'] {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+  .task-list {
+    min-height: 184px;
+  }
+  .task-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 46px;
+    text-align: left;
+    font-size: 0.6875rem;
+    border-bottom: 1px solid var(--color-paper-border);
+  }
+  .task-row:hover {
+    background: color-mix(in srgb, var(--color-paper-border) 30%, transparent);
+  }
+  .task-check {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: var(--color-paper-muted);
+  }
+  .task-row[aria-pressed='true'] .task-check {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+  .task-row[aria-pressed='true'] .task-name {
+    color: var(--color-paper-muted);
+  }
+  .task-tag {
+    margin-left: auto;
+    padding: 0.2rem 0.4rem;
+    font-size: 0.5625rem;
+    color: var(--color-paper-muted);
+    border: 1px solid var(--color-paper-border);
+    border-radius: 4px;
+  }
+  .workspace-footer {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.625rem;
+    color: var(--color-paper-muted);
+  }
+  .team-avatars {
+    display: flex;
+    padding-right: 0.4rem;
+  }
+  .team-avatars > span {
+    height: 25px;
+    width: 25px;
+    margin-right: -0.4rem;
+    display: grid;
+    place-items: center;
+    background: var(--color-paper-border);
+    border: 2px solid var(--color-paper);
+    border-radius: 50%;
+    color: var(--color-ink);
+    font-size: 0.5rem;
+  }
+  .team-avatars > span:first-child {
+    background: var(--color-brand-200);
+  }
+  .workspace-tip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-top: 1px solid var(--color-paper-border);
+    padding: 0.8rem 2rem;
+    font-size: 0.5625rem;
+    color: var(--color-paper-muted);
+  }
+}
+@media (max-width: 1100px) {
+  .playground-grid {
+    gap: 5%;
+  }
+  .workspace-body {
+    padding-inline: 1.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .playground-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .playground-copy .section-description {
+    max-width: 480px;
+  }
+  .playground-arrow {
+    display: none;
+  }
+  .workspace-demo {
+    max-width: 580px;
+    width: 100%;
+    margin-inline: auto;
+  }
+  .workspace-body {
+    padding-inline: 1.1rem;
+  }
+  .workspace-toolbar {
+    padding-inline: 1.1rem;
+  }
+  .workspace-tip {
+    padding-inline: 1.1rem;
+  }
+}
+@media (max-width: 380px) {
+  .task-tag {
+    display: none;
+  }
+}
+@media (forced-colors: active) {
+  .status-dot,
+  .progress-track > span {
+    background: Highlight;
+  }
+}
+
+.playground-section {
+  overflow: clip;
+}
+.playground-grid > * {
+  min-width: 0;
+}
+.task-list {
+  position: relative;
+}
+.task-empty {
+  padding-block: 2rem;
+  font-size: 0.75rem;
+  color: var(--color-paper-muted);
+}
