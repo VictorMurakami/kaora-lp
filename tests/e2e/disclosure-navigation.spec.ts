@@ -40,17 +40,21 @@ test('sidebar animates entrance and exit, traps focus and restores the trigger',
   await page.goto('/')
   const trigger = page.getByRole('button', { name: 'Abrir menu' })
   const dialog = page.getByRole('dialog')
-  await trigger.click()
-  await expect(dialog).toBeVisible()
-  const positions = await dialog.evaluate(async (element) => {
+  await expect(trigger).toBeVisible()
+  // Sample from the click itself: on a slow runner, waiting for visibility
+  // first can let the whole entrance finish before the first frame is read.
+  const positions = await trigger.evaluate(async (button) => {
+    const element = document.querySelector('dialog')!
+    button.click()
     const positions: number[] = []
     for (let frame = 0; frame < 32; frame++) {
       await new Promise(requestAnimationFrame)
-      positions.push(element.getBoundingClientRect().left)
+      if (element.open) positions.push(element.getBoundingClientRect().left)
     }
     return positions
   })
-  expect(positions[0]).toBeGreaterThan(positions.at(-1)!)
+  await expect(dialog).toBeVisible()
+  expect(Math.max(...positions)).toBeGreaterThan(positions.at(-1)!)
   await expect(page.locator('body')).toHaveCSS('overflow', 'hidden')
   for (let index = 0; index < 10; index++) {
     await page.keyboard.press('Tab')
