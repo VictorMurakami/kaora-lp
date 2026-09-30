@@ -1,0 +1,26 @@
+export function Symbol({
+  className,
+  style,
+  decorative = false,
+}: {
+  className?: string
+  style?: React.CSSProperties
+  decorative?: boolean
+}) {
+  return (
+    <svg
+      viewBox="0 0 146 146"
+      className={className}
+      style={style}
+      role={decorative ? undefined : 'img'}
+      aria-label={decorative ? undefined : 'Kaora'}
+      aria-hidden={decorative || undefined}
+    >
+      <path
+        fill="currentColor"
+        d="M73 0C82.6637 0 91.8885 1.87852 100.33 5.28906C94.2258 9.45443 89.7133 15.7788 87.8896 23.1631C83.1725 21.7558 78.1745 21 73 21C44.2812 21 21 44.2812 21 73C21 101.719 44.2812 125 73 125C101.719 125 125 101.719 125 73C125 68.6599 124.468 64.4442 123.466 60.4141C130.962 58.9274 137.469 54.6954 141.895 48.8076C144.553 56.3788 146 64.5204 146 73C146 113.317 113.317 146 73 146C32.6832 146 0 113.317 0 73C0 32.6832 32.6832 0 73 0Z"
+      />
+      <circle cx="117" cy="31" r="16" fill="currentColor" />
+    </svg>
+  )
+}
