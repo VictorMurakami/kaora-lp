@@ -1,0 +1,526 @@
+/*
+ * Layout for /design-system only. Samples use the landing's own classes;
+ * everything here is either page scaffolding (ds-*) or a mirror of a
+ * landing rule that has no class of its own (marked "mirror"), kept in sync
+ * by tests/e2e/design-system.spec.ts.
+ */
+@layer components {
+  .ds-main {
+    padding-top: 88px;
+  }
+
+  .ds-opening {
+    padding-block: clamp(3rem, 6vw, 6rem) 0;
+  }
+  .ds-index {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: clamp(3rem, 6vw, 5rem);
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-index a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-height: 56px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+    transition: color var(--duration-fast);
+  }
+  .ds-index a span {
+    font-size: 0.625rem;
+    color: var(--color-accent);
+  }
+  .ds-index a:hover {
+    color: var(--color-accent);
+  }
+
+  .ds-section {
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-opening + .ds-section {
+    border-top: 0;
+  }
+  .ds-section.ds-section-flush {
+    padding-bottom: 0;
+  }
+  .ds-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-block: 4rem 1.5rem;
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  .ds-spec {
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-spec-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 2rem 15%;
+    align-items: center;
+    padding-block: 2.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ds-spec-sample {
+    min-width: 0;
+  }
+  .ds-spec .ds-spec-sample > *,
+  .ds-spec .faq-grid .section-title {
+    margin-block: 0;
+  }
+  .ds-spec-name {
+    font-size: 0.8125rem;
+    color: var(--color-text);
+  }
+  .ds-spec-meta dl {
+    margin-top: 0.75rem;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 1.25rem;
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+  .ds-spec-meta dt {
+    color: var(--color-text-muted);
+  }
+  .ds-code {
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: var(--color-accent);
+  }
+  .ds-subtitle .ds-code {
+    font-size: inherit;
+    letter-spacing: inherit;
+    text-transform: none;
+  }
+
+  /* Page map and surface bands */
+  .ds-map {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    margin-bottom: 4rem;
+  }
+  .ds-map li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.6875rem;
+  }
+  .ds-map li > span:first-child {
+    height: 56px;
+    border: 1px solid var(--color-border);
+  }
+  .ds-map li > span:last-child {
+    color: var(--color-text-muted);
+  }
+  .ds-band {
+    --ds-muted: var(--color-text-muted);
+    --ds-line: var(--color-border);
+    padding-block: clamp(3rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-band.process-section {
+    --ds-muted: var(--color-paper-muted);
+    --ds-line: var(--color-paper-border);
+    border-top: 0;
+  }
+  .ds-band.contact-section {
+    --ds-muted: var(--color-ink);
+    --ds-line: color-mix(in srgb, var(--color-ink) 25%, transparent);
+    border-top: 0;
+  }
+  .ds-band-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 2.5rem 15%;
+    align-items: end;
+  }
+  .ds-band-name {
+    margin-top: 2rem;
+  }
+  .ds-band-token {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: var(--ds-muted);
+  }
+  .ds-band dl {
+    border-top: 1px solid var(--ds-line);
+  }
+  .ds-band dl > div {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    padding-block: 0.85rem;
+    border-bottom: 1px solid var(--ds-line);
+    font-size: 0.8125rem;
+  }
+  .ds-band dt {
+    color: var(--ds-muted);
+  }
+  .ds-band dd {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Colour ramps */
+  .ds-ramp {
+    display: grid;
+    grid-template-columns: repeat(11, minmax(0, 1fr));
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-ramp-short {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ds-swatch {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .ds-swatch-chip {
+    display: flex;
+    align-items: flex-end;
+    height: 6rem;
+    padding: 0.6rem;
+    font-size: 0.625rem;
+    font-weight: 500;
+  }
+  .ds-swatch-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.8rem 0.6rem 1rem 0;
+    font-size: 0.6875rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  .ds-swatch-info strong {
+    font-weight: 400;
+    color: var(--color-text);
+  }
+  .ds-swatch[data-unused='true'] .ds-swatch-usage {
+    color: var(--color-text-muted);
+  }
+  .ds-swatch-usage {
+    color: var(--color-text);
+  }
+
+  .ds-pairs {
+    border-top: 1px solid var(--color-border);
+  }
+  .ds-pair {
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 1.2fr) auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+  }
+  .ds-pair-chip {
+    display: grid;
+    place-items: center;
+    height: 3rem;
+    border: 1px solid var(--color-border);
+    font-size: 1.125rem;
+  }
+  .ds-pair-where {
+    color: var(--color-text-muted);
+  }
+  .ds-pair-ratio {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .ds-pair-ratio span {
+    display: block;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+  .ds-pair[data-pass='false'] .ds-pair-ratio span {
+    color: var(--color-error);
+  }
+
+  /* Mirrors of landing rules that are scoped to a parent selector */
+  .ds-type-contact {
+    /* mirror: .contact-grid h2 */
+    font-size: clamp(2.7rem, 5.5vw, 5rem);
+    font-weight: 500;
+    line-height: 1.06;
+    letter-spacing: -0.055em;
+  }
+  .ds-type-contact > span {
+    display: block;
+  }
+  .ds-type-service {
+    /* mirror: .service-item h3 */
+    font-size: clamp(1.2rem, 2.15vw, 1.9rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+  .ds-type-process {
+    /* mirror: .process-list h3 */
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+  .ds-type-principle {
+    /* mirror: .principles-grid h3 */
+    font-size: 1.35rem;
+    font-weight: 400;
+    line-height: 1.35;
+    letter-spacing: -0.025em;
+  }
+  .ds-floating {
+    /* mirror: FloatingContact utilities */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-full);
+    background: var(--color-field);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .ds-stage {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .ds-stage.contact-section {
+    min-height: 8rem;
+  }
+  .ds-nav .desktop-navigation {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .ds-radius {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .ds-radius figure {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+  .ds-radius figure > span {
+    width: 3.5rem;
+    height: 3.5rem;
+    border: 1px solid var(--color-text-muted);
+  }
+  .ds-lines {
+    display: grid;
+    gap: 1rem;
+  }
+  .ds-lines > div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    font-size: 0.75rem;
+  }
+  .ds-lines hr {
+    flex: 1;
+    border: 0;
+    border-top: 1px solid var(--ds-line, var(--color-border));
+  }
+
+  .ds-pattern-band {
+    margin-top: var(--space-section);
+    padding-block: 3rem;
+  }
+  .ds-pattern-band + .ds-pattern-band {
+    margin-top: 0;
+  }
+  .ds-workspace-grid {
+    margin-top: 0;
+  }
+  .ds-pattern-band .ds-subtitle:first-child {
+    margin-top: 0;
+  }
+  .process-section .ds-subtitle {
+    color: var(--color-paper-muted);
+  }
+  .process-section .ds-code {
+    color: var(--color-brand-700);
+  }
+  .contact-section .ds-code,
+  .contact-section .ds-subtitle {
+    color: var(--color-ink);
+  }
+  .ds-process-heading {
+    margin-top: 0;
+  }
+
+  .ds-reveal {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+  .ds-reveal > div {
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8125rem;
+  }
+  .ds-reveal > div span {
+    display: block;
+    margin-bottom: 1.5rem;
+    font-size: 0.625rem;
+    color: var(--color-accent);
+  }
+  .ds-reveal-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+  .ds-note {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    max-width: 720px;
+    margin-top: 2.5rem;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+  }
+  .ds-note strong {
+    font-weight: 500;
+    color: var(--color-text);
+  }
+
+  .ds-brand {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ds-brand > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 16rem;
+    padding: clamp(2rem, 4vw, 4rem);
+    border: 1px solid var(--color-border);
+  }
+  .ds-brand > div.contact-section {
+    border-color: var(--color-accent);
+  }
+  .ds-brand-logo {
+    width: 160px;
+  }
+  .ds-brand-symbol {
+    width: 88px;
+    height: 88px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .ds-spec-row,
+  .ds-band-grid {
+    gap: 2rem 8%;
+  }
+  .ds-ramp {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+  .ds-ramp-short {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .ds-map {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    row-gap: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .ds-main {
+    padding-top: 72px;
+  }
+  .ds-index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+  }
+  .ds-spec-row,
+  .ds-band-grid {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 2rem;
+  }
+  .ds-band-grid {
+    padding-block: 0;
+  }
+  .ds-ramp,
+  .ds-ramp-short {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-swatch {
+    display: grid;
+    grid-template-columns: 5rem minmax(0, 1fr);
+  }
+  .ds-swatch-chip {
+    height: auto;
+    min-height: 4.5rem;
+  }
+  .ds-swatch-info {
+    padding: 0.7rem 0 0.7rem 1rem;
+  }
+  .ds-map {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ds-pair {
+    grid-template-columns: 3.5rem minmax(0, 1fr) auto;
+    gap: 0.4rem 1rem;
+  }
+  .ds-pair-where {
+    grid-column: 2 / -1;
+    grid-row: 2;
+  }
+  .ds-stage {
+    padding: 1.5rem 0;
+  }
+  .ds-stage.contact-section {
+    padding-inline: 1.25rem;
+  }
+  .ds-type-service {
+    font-size: 1.3rem;
+  }
+  .ds-type-process {
+    font-size: 1.5rem;
+  }
+  .ds-reveal {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+  .ds-brand {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ds-brand > div {
+    min-height: 11rem;
+  }
+  .ds-brand-logo {
+    width: 120px;
+  }
+  .ds-brand-symbol {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+/* Sculpture laboratory (/design-system/field). */
+@layer components {
+  .lab-stage {
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
+}
