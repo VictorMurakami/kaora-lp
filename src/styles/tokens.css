@@ -1,0 +1,96 @@
+:root {
+  --color-brand-50: #fff3ec;
+  --color-brand-100: #ffe1d1;
+  --color-brand-200: #ffc0a3;
+  --color-brand-300: #ff9868;
+  --color-brand-400: #f86f2f;
+  --color-brand-500: #de4e00;
+  --color-brand-600: #c43f00;
+  --color-brand-700: #9e3200;
+  --color-brand-800: #7a2700;
+  --color-brand-900: #5c1d00;
+  --color-brand-950: #331000;
+
+  --color-neutral-50: #f7f7f8;
+  --color-neutral-100: #e9e9ec;
+  --color-neutral-200: #c9c9d0;
+  --color-neutral-300: #a2a2ad;
+  --color-neutral-400: #7b7b88;
+  --color-neutral-500: #5c5c68;
+  --color-neutral-600: #44444e;
+  --color-neutral-700: #2f2f37;
+  --color-neutral-800: #1d1d23;
+  --color-neutral-900: #131318;
+  --color-neutral-950: #0a0a0b;
+
+  --color-bg: #0a0a0b;
+  --color-surface: #131318;
+  --color-surface-elevated: #1d1d23;
+  --color-border: #2f2f37;
+  --color-text: #f7f7f8;
+  --color-text-muted: #a2a2ad;
+  --color-success: #3fbf6f;
+  --color-error: #ff6b5a;
+
+  --color-paper: #eae8e1;
+  --color-paper-muted: #5e605b;
+  --color-paper-border: #cbcbc2;
+  --color-accent: #f86f2f;
+  --space-section: clamp(5rem, 8vw, 8rem);
+  --space-gutter: clamp(1.25rem, 4.5vw, 5rem);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.875rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  --color-field: #de4e00;
+  --color-ink: #0a0a0b;
+  --color-on-field-muted: #3d1600;
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0/0.4);
+  --shadow-lg: 0 24px 48px -12px rgb(0 0 0/0.6);
+
+  --gradient-orbit: conic-gradient(
+    from 210deg,
+    transparent 0deg,
+    #de4e00 90deg,
+    #ff9868 150deg,
+    transparent 260deg
+  );
+
+  --duration-instant: 100ms;
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --duration-slower: 1200ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --display-wdth: 115;
+  --display-wght: 700;
+  --display-tracking: -0.03em;
+
+  --leading-display: 1.05;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-archivo), system-ui, sans-serif;
+
+  --text-display-xl: clamp(2.75rem, 1.6rem + 5.72vw, 6.75rem);
+  --text-display-lg: clamp(2.25rem, 1.5rem + 3.4vw, 4rem);
+  --text-display-md: clamp(1.875rem, 1.4rem + 2.1vw, 2.75rem);
+  --text-body-lg: clamp(1.0625rem, 1rem + 0.35vw, 1.25rem);
+  --text-body: 1rem;
+  --text-caption: 0.8125rem;
+}
+
+@layer base {
+  .font-display {
+    font-variation-settings:
+      'wdth' var(--display-wdth),
+      'wght' var(--display-wght);
+    letter-spacing: var(--display-tracking);
+    line-height: var(--leading-display);
+  }
+}

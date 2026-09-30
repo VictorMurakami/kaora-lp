@@ -1,0 +1,79 @@
+@import 'tailwindcss' source(none);
+@source '../';
+@import '../styles/tokens.css';
+@import '../styles/landing.css';
+
+@theme inline {
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-elevated: var(--color-surface-elevated);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --radius-lg: var(--radius-lg);
+  --ease-out-expo: var(--ease-out-expo);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+  button,
+  summary,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button,
+  summary {
+    cursor: pointer;
+  }
+  ::selection {
+    background: var(--color-brand-400);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand-400);
+    outline-offset: 5px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .kaora-spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      360px circle at var(--mx, 50%) var(--my, 50%),
+      color-mix(in srgb, var(--color-field) 14%, transparent),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity var(--duration-base) var(--ease-out-expo);
+    pointer-events: none;
+  }
+  .kaora-spotlight:hover::before {
+    opacity: 1;
+  }
+}
