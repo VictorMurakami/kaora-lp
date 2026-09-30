@@ -1,0 +1,210 @@
+@layer components {
+  .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 50;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    transition:
+      transform var(--duration-base) var(--ease-out-expo),
+      background var(--duration-base);
+  }
+  .site-header.is-scrolled {
+    background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    backdrop-filter: blur(16px);
+  }
+  .site-header.is-hidden {
+    transform: translateY(-100%);
+  }
+  .site-header:focus-within {
+    transform: translateY(0);
+  }
+  .header-inner {
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  .header-brand {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    width: 112px;
+  }
+  .header-brand svg {
+    width: 100%;
+  }
+  .desktop-navigation,
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .desktop-navigation a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    transition: color var(--duration-fast);
+  }
+  .desktop-navigation a:hover {
+    color: var(--color-text);
+  }
+  .header-contact {
+    min-height: 44px;
+    padding: 0.7rem 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    font-size: 0.8125rem;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    transition:
+      background var(--duration-fast),
+      color var(--duration-fast);
+  }
+  .header-contact:hover {
+    background: var(--color-text);
+    color: var(--color-ink);
+  }
+  .language-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+  .language-switch button {
+    min-height: 44px;
+    min-width: 32px;
+    display: grid;
+    place-items: center;
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+  }
+  .language-switch button[aria-pressed='true'] {
+    color: var(--color-accent);
+  }
+  .menu-toggle {
+    display: none;
+  }
+  .icon-button,
+  .menu-toggle {
+    height: 44px;
+    width: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-button {
+    display: flex;
+  }
+  .mobile-navigation {
+    inset: 0 0 0 auto;
+    margin: 0 0 0 auto;
+    width: min(100%, 480px);
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    background: var(--color-bg);
+    color: var(--color-text);
+    border-left: 1px solid var(--color-border);
+    overflow-x: clip;
+    overscroll-behavior: contain;
+  }
+  .mobile-navigation::backdrop {
+    background: rgb(0 0 0 / 65%);
+    transition: background var(--duration-base);
+  }
+  .mobile-navigation[data-closing='true']::backdrop {
+    background: transparent;
+  }
+  .mobile-menu-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .mobile-navigation nav {
+    padding-block: 3rem;
+  }
+  .mobile-navigation nav a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .mobile-navigation nav a span {
+    color: var(--color-accent);
+    font-size: 0.75rem;
+  }
+  .mobile-navigation nav a svg {
+    margin-left: auto;
+  }
+  .mobile-navigation .language-switch {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  .mobile-navigation .language-switch button {
+    font-size: 1rem;
+    min-width: 44px;
+  }
+}
+@media (max-width: 1100px) {
+  .header-inner {
+    gap: 1.5rem;
+  }
+  .header-actions {
+    gap: 1rem;
+  }
+  .desktop-navigation {
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 767px) {
+  .header-inner {
+    height: 72px;
+    gap: 1rem;
+  }
+  .header-brand {
+    width: 96px;
+  }
+  .desktop-navigation,
+  .desktop-language {
+    display: none;
+  }
+  .header-actions {
+    gap: 0.6rem;
+  }
+  .header-contact {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.6875rem;
+    gap: 0.6rem;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+@media (max-width: 380px) {
+  .header-contact {
+    border: 0;
+    padding-inline: 0.25rem;
+  }
+  .header-contact svg {
+    display: none;
+  }
+}
+.action-link:hover svg,
+.header-contact:hover svg {
+  transform: translate(2px, -2px);
+}
+
+/* Reference pages keep the language switch in the bar on small screens; there
+   is no room for the contact pill beside it, and no menu to move it into. */
+@media (max-width: 767px) {
+  .site-header-reference .header-contact {
+    display: none;
+  }
+}
