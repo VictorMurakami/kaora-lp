@@ -43,7 +43,7 @@ test('sidebar animates entrance and exit, traps focus and restores the trigger',
   await expect(trigger).toBeVisible()
   // Sample from the click itself: on a slow runner, waiting for visibility
   // first can let the whole entrance finish before the first frame is read.
-  const positions = await trigger.evaluate(async (button) => {
+  const positions = await trigger.evaluate(async (button: HTMLElement) => {
     const element = document.querySelector('dialog')!
     button.click()
     const positions: number[] = []
