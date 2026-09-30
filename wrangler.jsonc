@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kaora-lp",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "kaora-lp",
+    },
+  ],
+  // Requires the kaorabr.com zone in the same Cloudflare account.
+  "routes": [
+    { "pattern": "kaorabr.com", "custom_domain": true },
+    { "pattern": "www.kaorabr.com", "custom_domain": true },
+  ],
+  "observability": { "enabled": true },
+}
